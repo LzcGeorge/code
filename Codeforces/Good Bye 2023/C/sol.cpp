@@ -22,9 +22,22 @@ using ll = long long;
 const int N = 2e5,M = 5e5;
 
 void solve()
-{
-
-}
+{   
+    int n;
+    cin >> n;
+    ll sum = 0;
+    cin >> sum;
+    cout << sum <<" ";
+    int even = sum%2;
+    for(int i = 1; i < n; i ++) {
+        ll x;
+        cin >> x;
+        sum += x;
+        even += x%2;
+        cout << sum - even/3 - (even%3 == 1) << " ";
+    }
+    cout << "\n";
+}   
 
 int main()
 {

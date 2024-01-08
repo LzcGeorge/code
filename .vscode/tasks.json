@@ -49,22 +49,6 @@
                 "isDefault": true
             }
         },
-        {
-            "label": "debug cpp",
-            "type": "shell",
-            "command": "${fileDirname}\\run.exe",
-            "options": {
-                "cwd": "${fileDirname}"
-            },
-            "dependsOn": [
-                "build cpp"
-            ],
-            "problemMatcher": [],
-            "group": {
-                "kind": "debug",
-                "isDefault": true
-            }
-        },
     ],
     "version": "2.0.0"
 }

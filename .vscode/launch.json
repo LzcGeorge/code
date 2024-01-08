@@ -1,10 +1,24 @@
 {
   "configurations": [
     {
-      "name": "Build & Run (C++)",
+      "name": "Debug from file (C++)",
       "type": "cppdbg",
       "request": "launch",
-      "program": "${fileDirname}/run.exe",
+      "program": "${fileDirname}\\run.exe",
+      "args": ["<", "${fileDirname}\\01.i.txt"],
+      "stopAtEntry": false,
+      "cwd": "${fileDirname}",
+      "externalConsole": false,
+      "windows": {
+        "miDebuggerPath": "D:\\software\\MINGW\\mingw\\mingw64\\bin\\gdb.exe"
+      },
+      "MIMode": "gdb",
+    },
+    {
+      "name": "Debug from stdio (C++)",
+      "type": "cppdbg",
+      "request": "launch",
+      "program": "${fileDirname}\\run.exe",
       "args": [],
       "stopAtEntry": false,
       "cwd": "${fileDirname}",
@@ -12,12 +26,7 @@
       "windows": {
         "miDebuggerPath": "D:\\software\\MINGW\\mingw\\mingw64\\bin\\gdb.exe"
       },
-      "env": {
-        "PATH": "D:\\software\\MINGW\\mingw\\mingw64\\bin;${env:PATH}"
-      },
-      "console": "internalConsole",
       "MIMode": "gdb",
-      "miDebuggerArgs": "-ex 'set input-radix 10' -ex 'run < ${fileDirname}/01.i.txt'"
     }
   ],
   "version": "0.2.0"

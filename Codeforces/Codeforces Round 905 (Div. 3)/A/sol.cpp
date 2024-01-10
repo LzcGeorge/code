@@ -24,7 +24,17 @@ const int N = 2e5,M = 5e5;
 
 void solve()
 {
-
+    string s;
+    cin >> s;
+    int cur = 1;
+    int res = 0;
+    for(auto c: s) {
+        int t = c - '0';
+        if(t == 0) t = 10;
+        res += abs(t - cur) + 1;
+        cur = t;
+    }
+    cout << res << "\n";
 }
 
 int main()

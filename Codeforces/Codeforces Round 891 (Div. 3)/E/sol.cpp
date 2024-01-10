@@ -24,7 +24,31 @@ const int N = 2e5,M = 5e5;
 
 void solve()
 {
+    int n;
+    cin >> n;
+    vector<pair<int,int>> a(n);
+    ll last = 0,pre = 0;
+    for(int i = 0; i < n; i ++) {
+        int x;
+        cin >> x;
+        last += x;
+        a[i] = {x,i};
+    }
+    sort(a.begin(),a.end());
+    vector<ll> res(n);
+    
+    for(int i = 0; i < n; i ++) {
+        auto [x,pos] = a[i];
+        last -= x;
+        if(i != 0) res[pos] += 1ll*i*x - pre + i;
+        if(i != n-1) res[pos] += last - 1ll*x*(n-1-i)  + (n-1-i);
+        // debug(res[pos]);
+        pre += x;
+        res[pos] += 1ll;
 
+    }
+    for(int i = 0; i < n; i ++) cout << res[i] << " ";
+    cout << "\n";
 }
 
 int main()

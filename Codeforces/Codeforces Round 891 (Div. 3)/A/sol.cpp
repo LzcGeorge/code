@@ -24,7 +24,16 @@ const int N = 2e5,M = 5e5;
 
 void solve()
 {
-
+    int n;
+    cin >> n;
+    int sum = 0;
+    for(int i = 0; i < n; i ++) {
+        int x;
+        cin >> x;
+        sum += x;
+    }
+    if(sum%2 == 1) cout <<"NO\n";
+    else cout << "YES\n";
 }
 
 int main()

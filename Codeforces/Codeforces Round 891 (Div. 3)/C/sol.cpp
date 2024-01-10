@@ -24,7 +24,22 @@ const int N = 2e5,M = 5e5;
 
 void solve()
 {
+    int n;
+    cin >> n;
+    vector<int> b(n*(n-1)/2);
+    for(auto &it: b) cin >> it;
 
+    sort(b.begin(),b.end());
+    int k = n-1;
+    int cnt = 0;
+    for(int i = 0; i < b.size(); k --) {
+        cout << b[i] << " ";
+        i += k;
+        cnt ++;
+    }
+    while(cnt < n)
+        cout << b.back() << " ",cnt ++;
+    cout << "\n";
 }
 
 int main()

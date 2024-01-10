@@ -24,7 +24,29 @@ const int N = 2e5,M = 5e5;
 
 void solve()
 {
-
+    ll n, m;
+    cin >> n >> m;
+    ll tn = n, tm = m;
+    ll td = 1;
+    while(tn % 10 == 0) {
+      tn /= 10;
+      td *= 10;
+    }
+    ll tq = 1;
+    while(tn % 5 == 0 and tq * 2 <= m){
+      tq *= 2;
+      tn /= 5;
+    }
+    while(tn % 2 == 0 and tq * 5 <= m){
+      tq *= 5;
+      tn /= 2;
+    }
+    while(tq * 10 <= m) tq *= 10;
+    if(tq == 1){
+      cout << n * m << endl;
+    }else{
+      cout << tq * n * (m / tq) << endl;
+    }
 }
 
 int main()

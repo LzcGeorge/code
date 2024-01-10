@@ -24,7 +24,24 @@ const int N = 2e5,M = 5e5;
 
 void solve()
 {
-
+    int n,q;
+    cin >> n >> q;
+    
+    for(int i = 1; i <= n-1; i ++) {
+        cout << i << " " << i + 1 << "\n";
+    }
+    int pre = n - 1;
+    for(int i = 0; i < q; i ++) {
+        int x;
+        cin >> x;
+        if(pre == x) {
+            cout << "-1 -1 -1\n";
+            continue;
+        }
+        cout << n << " " << pre << " "<< x <<"\n";
+        pre = x;
+    }
+    
 }
 
 int main()

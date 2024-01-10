@@ -19,12 +19,26 @@ using ll = long long;
 #define pb push_back
 #define DE cout << "-----------\n"
 
-const int inf = 0x3f3f3f3f;
 const int N = 2e5,M = 5e5;
 
 void solve()
 {
+    int n;
+    cin >> n;
+    vector<int> a(n);
+    for(auto &it: a) cin >> it;
 
+    int mx = a[0],sum = a[0];
+    for(int i = 1; i < n; i ++) {
+        if(sum < 0 || abs(a[i-1])%2 == abs(a[i])%2) {
+            sum = a[i];
+        } else {
+            sum += a[i];
+        }
+        mx = max(sum,mx);
+    }
+    cout << mx << "\n";
+    // debug(mx);
 }
 
 int main()

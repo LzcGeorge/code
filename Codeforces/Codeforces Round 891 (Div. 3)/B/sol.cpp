@@ -24,7 +24,18 @@ const int N = 2e5,M = 5e5;
 
 void solve()
 {
-
+    string s;
+    cin >> s;
+    s = '0' +s;
+    int k = s.size();
+    for(int i = s.size() - 1; i >= 0; i --) {
+        if(s[i] >= '5') s[i-1] ++,k = i;
+    }
+    for(int i = (int)(s[0] == '0'); i < s.size(); i ++) {
+        if(i >= k) cout << '0';
+        else cout << s[i];
+    }
+    cout << "\n";
 }
 
 int main()

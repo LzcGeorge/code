@@ -19,12 +19,23 @@ using ll = long long;
 #define pb push_back
 #define DE cout << "-----------\n"
 
-const int inf = 0x3f3f3f3f;
 const int N = 2e5,M = 5e5;
 
 void solve()
 {
-
+    int n;
+    cin >> n;
+    vector<int> a(n);
+    for(auto &it: a) cin >> it;
+    ll res = 0;
+    map<double,int> mp;
+    for(auto c: a) {
+        double t = (double)c*log2(2) - (double)log2(c);
+        if(mp[t] > 0) res += mp[t];
+        mp[t] ++;
+    }
+   
+    cout << res << "\n";
 }
 
 int main()

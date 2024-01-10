@@ -24,7 +24,40 @@ const int N = 2e5,M = 5e5;
 
 void solve()
 {
+    // 存在 k 这个数不就行
+    int n,k;
+    cin >> n >> k;
+    vector<int> a(n);
+    for(auto &x: a) cin >> x;
 
+    if(k != 4) {
+        int res = 1110;
+        for(auto c: a) {
+            int t = c / k;
+
+            if(c%k != 0) t += 1;
+            res = min(res,t*k - c);
+        }
+        cout << res << "\n";
+    } else {
+        int cnt = 0;
+        for(auto c: a) {
+            if(c % 4 == 0) cnt += 2;
+            else if(c % 2 == 0) cnt += 1;
+        }
+        if(cnt >= 2) cout << "0\n";
+        else if(cnt == 1){
+            cout << "1\n";
+        }else {
+            // 1 3 -> 1
+            // 1 1 -> 2
+            int res = 2;
+            for(auto c: a) {
+                if(c % 4 == 3) res = 1;
+            }
+            cout << res << "\n";
+        }
+    }
 }
 
 int main()

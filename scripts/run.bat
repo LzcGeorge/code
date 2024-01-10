@@ -10,6 +10,7 @@ for %%i in (*.i.txt) do (
     fc /w !id!.o.txt !id!.a.txt > nul
     if !errorlevel! neq 0 (
         code --diff !id!.o.txt !id!.a.txt
+        
         REM Set text color to red
         color 04
 
@@ -31,3 +32,4 @@ for %%i in (*.i.txt) do (
 )
 
 endlocal
+

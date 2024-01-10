@@ -24,7 +24,32 @@ const int N = 2e5,M = 5e5;
 
 void solve()
 {
-
+    int n;
+    cin >> n;
+    multiset<int> sl,sr;
+    for(int i = 0; i < n; i ++) {
+        ll l,r;
+        char c;
+        cin >> c;
+        cin >> l >> r;
+        if(c == '+') {
+            sl.insert(l);
+            sr.insert(r);
+            auto it = sl.end();
+            if(*sr.begin() < *(--it)) 
+                cout << "YES\n";
+            else 
+                cout << "NO\n";
+        } else{
+            sl.erase(sl.find(l));
+            sr.erase(sr.find(r));
+            auto it = sl.end();
+            if(!sr.empty() and !sl.empty() and *sr.begin() < *(--it))
+                cout << "YES\n";
+            else    
+                cout << "NO\n";
+        }
+    }
 }
 
 int main()
@@ -32,7 +57,7 @@ int main()
     std::ios::sync_with_stdio(0),std::cin.tie(0);
     ll T = 1;
 
-    cin  >> T;
+    // cin  >> T;
     while (T--)
         solve();
 }

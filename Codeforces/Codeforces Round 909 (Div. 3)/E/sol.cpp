@@ -24,7 +24,26 @@ const int N = 2e5,M = 5e5;
 
 void solve()
 {
+    // 最小的数后面是有序的就行，次数是最小的数前面数的个数
+    int n;
+    cin >> n;
+    vector<int> a(n);
+    for(auto &it: a) cin >> it;
+    int mn = inf,pos = -1;
+    for(int i = 0; i < n; i ++) {
+        if(a[i] < mn) {
+            mn = a[i];
+            pos = i;
+        }
+    }
 
+    for(int i = pos+1; i < n; i ++) {
+        if(a[i] < a[i-1]) {
+            cout << "-1\n";
+            return;
+        }
+    }
+    cout << pos << "\n";
 }
 
 int main()

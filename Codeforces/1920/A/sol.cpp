@@ -45,6 +45,7 @@ void solve()
     if(res < 0) cout << "0\n";
     else 
         cout << res << "\n";
+    cout << "1\n";
 }
 
 int main()

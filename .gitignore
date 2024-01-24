@@ -1,3 +1,5 @@
 **/*.exe
 **/*.out
 **/*.log
+**/*.elf
+.DS_Store

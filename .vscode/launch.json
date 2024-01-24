@@ -1,33 +1,27 @@
 {
+  // 使用 IntelliSense 了解相关属性。 
+  // 悬停以查看现有属性的描述。
+  // 欲了解更多信息，请访问: https://go.microsoft.com/fwlink/?linkid=830387
+  "version": "0.2.0",
   "configurations": [
-    {
-      "name": "Debug from file (C++)",
-      "type": "cppdbg",
-      "request": "launch",
-      "program": "${fileDirname}\\run.exe",
-      "args": ["<", "${fileDirname}\\01.i.txt"],
-      "stopAtEntry": false,
-      "cwd": "${fileDirname}",
-      "externalConsole": false,
-      "windows": {
-        "miDebuggerPath": "D:\\software\\MINGW\\mingw\\mingw64\\bin\\gdb.exe"
+      {
+          "type": "lldb",
+          "request": "launch",
+          "name": "Debug from file (C++)",
+          "program": "${fileDirname}/run.elf",
+          "args": [],
+          "cwd": "${fileDirname}",
+          "preLaunchTask": "build cpp",
+          "stdio": "${fileDirname}/01.i.txt",
       },
-      "MIMode": "gdb",
-    },
-    {
-      "name": "Debug from stdio (C++)",
-      "type": "cppdbg",
-      "request": "launch",
-      "program": "${fileDirname}\\run.exe",
-      "args": [],
-      "stopAtEntry": false,
-      "cwd": "${fileDirname}",
-      "externalConsole": false,
-      "windows": {
-        "miDebuggerPath": "D:\\software\\MINGW\\mingw\\mingw64\\bin\\gdb.exe"
-      },
-      "MIMode": "gdb",
-    }
-  ],
-  "version": "0.2.0"
+      {
+          "type": "lldb",
+          "request": "launch",
+          "name": "Debug from stdin (C++)",
+          "program": "${fileDirname}/run.elf",
+          "args": [],
+          "cwd": "${fileDirname}",
+          "preLaunchTask": "build cpp",
+      }
+  ]
 }

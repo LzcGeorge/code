@@ -2,4 +2,5 @@
 **/*.out
 **/*.log
 **/*.elf
+*.plist
 .DS_Store

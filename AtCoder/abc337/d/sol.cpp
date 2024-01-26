@@ -14,52 +14,46 @@ void solve() {
     int res = inf;
     if (k <= m) {
     	for (auto s : S) {
-    		int cnt = 0;
-    		std::queue<char> q;
+    		std::deque<char> q;
+            int cnt = 0;
     		for (auto c : s) {
-    			if (q.size() == k) {
-    				res = std::min(res, k - cnt);
-    				if (q.front() == 'o') cnt--;
-    				q.pop();
-    			}
-    			if (c == 'x') {
-    				while (!q.empty()) q.pop();
-    				cnt = 0;
-    			} else if (c == '.') {
-    				q.push('.');
-    			} else {
-    				cnt++;
-    				q.push('o');
-    			}
+                q.push_back(c);
+    			if(c == 'x') {
+                    q.clear();
+                    cnt = 0;
+                } else if(c == 'o') {
+                    cnt += 1;
+                } 
+
+                if(q.size() == k) {
+                    res = std::min(res,k - cnt);
+                    cnt -= (q.front() == 'o');
+                    q.pop_front();
+                }
     		}
-	    	if (q.size() == k) {
-	    		res = std::min(res, k - cnt);
-	    	}
+	    	
     	}
     }
     if (k <= n) {
     	for (int i = 0; i < m; ++i) {
-    		int cnt = 0;
-    		std::queue<char> q;
+    		std::deque<char> q;
+            int cnt = 0;
     		for (int j = 0; j < n; ++j) {
-    			if (q.size() == k) {
-    				res = std::min(res, k - cnt);
-    				if (q.front() == 'o') cnt--;
-    				q.pop();
-    			}
-    			if (S[j][i] == 'x') {
-    				while (!q.empty()) q.pop();
-    				cnt = 0;
-    			} else if (S[j][i] == '.') {
-    				q.push('.');
-    			} else {
-    				cnt++;
-    				q.push('o');
-    			}
+                char c = S[j][i];
+    			q.push_back(c);
+    			if(c == 'x') {
+                    q.clear();
+                    cnt = 0;
+                } else if(c == 'o') {
+                    cnt += 1;
+                } 
+
+                if(q.size() == k) {
+                    res = std::min(res,k - cnt);
+                    cnt -= (q.front() == 'o');
+                    q.pop_front();
+                }
     		}
-   	    	if (q.size() == k) {
-	    		res = std::min(res, k - cnt);
-	    	}
     	}
     }
     if (res == inf) res = -1;

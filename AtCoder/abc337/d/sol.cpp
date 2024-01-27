@@ -31,7 +31,7 @@ void solve() {
                     q.pop_front();
                 }
     		}
-	    	
+    
     	}
     }
     if (k <= n) {

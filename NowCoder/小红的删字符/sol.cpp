@@ -17,6 +17,7 @@ template <class T, class... Ts> void rd_debug(const T &arg, const Ts &...args) {
 using ll = long long;
 #define eb emplace_back
 #define pb push_back
+#define DE cout << "-----------\n"
 
 const int inf = 0x3f3f3f3f;
 const int N = 2e5,M = 5e5;
@@ -26,14 +27,11 @@ void solve()
 {
     string s;
     cin >> s;
-    map<char,int> mp;
-    for(auto c: s) mp[c] ++;
-    char res = s[0];
-    for(auto [c,t]: mp) {
-        if(mp[res] < t) res = c;
-        else if(mp[res] == t and c < res) res = c;
+    for(int i = 0; i < 3; i ++) {
+        if(i != 1) {
+            cout << s[i];
+        }
     }
-    cout << res;
 }
 
 int main()

@@ -20,31 +20,24 @@ using ll = long long;
 #define DE cout << "-----------\n"
 
 const int inf = 0x3f3f3f3f;
-const int N = 1e4+5,M = 5e5;
+const int N = 1010,M = 5e5;
 
 // 答案/构造 是从样例中推出来的，不是猜出来的
-int f[N],v[N],w[N],l[N];
+int t[N],v[N],w[N],f[N][N];
 void solve()
 {
-    int n,m;
-    cin >> n >> m;
-    for(int i = 1; i <= n; i ++)
-        cin >> v[i] >> w[i] >> l[i];
-    // 拆成 01 背包
-    for(int i = 1; i <= n; i ++) {
-        int res = l[i];
-        // 1 2 4 8 等二进制的背包
-        for(int k = 1; k <= res; res -= k,k *= 2) {
-            for(int j = m; j >= v[i] * k; j --) 
-                f[j] = max(f[j],f[j - v[i] * k] + w[i] * k);
-        }
-        // 剩余的背包
-        for(int j = m; j >= v[i] * res; j --) 
-            f[j] = max(f[j],f[j - v[i] * res]+ w[i] * res);
-    }
-    cout << f[m];
-        
+    int n,m,x;
+    cin >> n >> m >> x;
 
+    for(int i = 1; i <= n; i ++) 
+        cin >> v[i] >> w[i] >> t[i];
+        
+    for(int i = 1; i <= n; i ++)
+        for(int j = m; j >= v[i]; j --)
+            for(int k = x; k >= t[i]; k --)
+                f[j][k] = max(f[j][k],f[j-v[i]][k-t[i]] + w[i]);
+                
+    cout << f[m][x];
 }
 
 int main()

@@ -23,15 +23,36 @@ const int inf = 0x3f3f3f3f;
 const int N = 1e4+5,M = 5e5;
 
 // 答案/构造 是从样例中推出来的，不是猜出来的
-int f[N],v[N],w[N],l[N];
+int f[N],v[N],w[N],l[N],a[N];
+vector<int> c[4];
 void solve()
 {
     int n,m;
     cin >> n >> m;
-    for(int i = 1; i <= n; i ++)
-        cin >> v[i] >> w[i] >> l[i];
+    
+    for(int i = 1;i <= n; i ++) {
+        int x;
+        cin >> x;
+        if(x == 3) {
+            cin >> v[i] >> w[i] >> l[i];
+        } else {
+            cin >> v[i] >> w[i];
+        }
+        c[x].push_back(i);
+    }
+
+    for(int i: c[1]) {
+        for(int j = m; j >= v[i]; j --)
+            f[j] = max(f[j],f[j - v[i]] + w[i]);
+    }
+
+    for(int i: c[2]) {
+        for(int j = v[i]; j <= m; j ++)
+            f[j] = max(f[j],f[j-v[i]] + w[i]);
+    }
+
     // 拆成 01 背包
-    for(int i = 1; i <= n; i ++) {
+    for(int i: c[3]) {
         int res = l[i];
         // 1 2 4 8 等二进制的背包
         for(int k = 1; k <= res; res -= k,k *= 2) {

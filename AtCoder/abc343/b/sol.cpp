@@ -25,7 +25,16 @@ const int N = 2e5,M = 5e5;
 // 答案/构造 是从样例中推出来的，不是猜出来的
 void solve()
 {
-    
+    int n;
+    cin >> n;
+    for(int i = 1; i <= n;i ++) {
+        for(int j = 1; j <= n; j ++) {
+            int x;
+            cin >> x;
+            if(x == 1) cout << j << " ";
+        }
+        cout << "\n";
+    }
 }
 
 int main()

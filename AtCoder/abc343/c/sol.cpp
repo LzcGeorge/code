@@ -25,7 +25,26 @@ const int N = 2e5,M = 5e5;
 // 答案/构造 是从样例中推出来的，不是猜出来的
 void solve()
 {
-    
+    unsigned long long x = 1,n;
+    cin >> n;
+    string res = "1";
+    while(x * x * x <= n) {
+        string s = to_string(x * x * x);
+        stack<char> st;
+        for(auto c: s) st.push(c);
+        bool f = true;
+        for(auto c: s) {
+            if(c == st.top()) st.pop();
+            else {
+                f = false;
+                break;
+            }
+        }
+        x ++;
+        if(f) res = s;
+    }
+    cout << res;
+
 }
 
 int main()

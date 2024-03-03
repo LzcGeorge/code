@@ -6,6 +6,7 @@
   "files.associations": {
     "iostream": "cpp",
     "ios": "cpp",
-    "deque": "cpp"
-}
+    "deque": "cpp",
+    "stack": "cpp"
+  }
 }

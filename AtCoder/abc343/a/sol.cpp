@@ -25,7 +25,10 @@ const int N = 2e5,M = 5e5;
 // 答案/构造 是从样例中推出来的，不是猜出来的
 void solve()
 {
-    
+    int a,b;
+    cin >> a >> b;
+    if(a + b == 9) cout << "0";
+    else cout << "9";
 }
 
 int main()

@@ -20,12 +20,28 @@ using ll = long long;
 #define DE cout << "-----------\n"
 
 const int inf = 0x3f3f3f3f;
-const int N = 2e5,M = 5e5;
+const int N = 2e5+10,M = 5e5;
 
 // 答案/构造 是从样例中推出来的，不是猜出来的
 void solve()
 {
-    
+    int n,T;
+    cin >> n >> T;
+    map<ll,int> mp;
+    mp[0] = n;
+    vector<pair<int,int>> a(T);
+    vector<ll> b(n+1,0);
+    int res = 1;
+    for(int i = 0; i < T; i ++) {
+        int x,y;
+        cin >> x >> y;
+        a[i] = {x,y};
+        if(mp[b[x] + y] == 0) res ++;
+        if(mp[b[x]] == 1) res -- ;
+        -- mp[b[x]], ++ mp[b[x] + y];
+        b[x] += y;
+        cout << res << "\n";
+    }
 }
 
 int main()

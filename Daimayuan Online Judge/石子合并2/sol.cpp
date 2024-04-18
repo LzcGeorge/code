@@ -20,13 +20,35 @@ using ll = long long;
 #define DE cout << "-----------\n"
 
 const int inf = 0x3f3f3f3f;
-const int N = 1e6+10;
+const int N = 510;
 const int mod = 1e9 + 7;
 // 答案/构造 是从样例中推出来的，不是猜出来的
 
+int n,a[N],s[N],f[N][N];
+
 void solve()
 {
+    cin >> n;
+    for(int i = 1; i <= n; i ++) {
+        cin >> a[i];
+        a[n + i] = a[i];
+    }
+    n += n;
+    for(int i = 1; i <= n; i ++) s[i] = s[i-1] + a[i];
 
+    memset(f,0x3f,sizeof(f));
+    
+    for(int i = 1; i <= n; i ++) f[i][i] = 0;
+    for(int i = 1; i < n; i ++) 
+        for(int j = 1; j <= n - i; j ++)
+            for(int k = j; k < j + i; k ++)
+                f[j][j + i] = min(f[j][j + i],f[j][k] + f[k + 1][j + i] + s[j + i] - s[j - 1]);
+    
+    int res = inf;
+    for(int i = 1; i <= n/2 ; i ++)
+        res = min(res,f[i][i + n/2 - 1]);
+    cout << res;
+    
 }
 
 int main()

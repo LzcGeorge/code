@@ -20,13 +20,24 @@ using ll = long long;
 #define DE cout << "-----------\n"
 
 const int inf = 0x3f3f3f3f;
-const int N = 1e6+10;
-const int mod = 1e9 + 7;
-// 答案/构造 是从样例中推出来的，不是猜出来的
+const int N = 2e5,M = 5e5;
 
+// 答案/构造 是从样例中推出来的，不是猜出来的
 void solve()
 {
-
+    int n;
+    cin >> n;
+    set<int> st;
+    int res = 1;
+    for(int i = 0; i < n; i ++) {
+        int x;
+        cin >> x;
+        st.insert(x);
+    }
+    for(auto c: st) {
+        if(c == res) res ++;
+    }
+    cout << res;
 }
 
 int main()

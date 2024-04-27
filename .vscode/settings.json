@@ -9,6 +9,7 @@
     "deque": "cpp",
     "stack": "cpp",
     "vector": "cpp",
-    "iomanip": "cpp"
+    "iomanip": "cpp",
+    "set": "cpp"
   }
 }

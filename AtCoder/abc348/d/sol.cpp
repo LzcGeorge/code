@@ -65,7 +65,7 @@ void solve()
     while(que.size()) {
         auto [fx,fy] = que.front(); que.pop();
 
-        int nd = max(f[fx][fy],e[fx][fy]);
+        int nd = max(f[fx][fy],e[fx][fy]); // 当前点的最大体力
         if(nd <= 0) continue;
 
         for(int i = 0; i < 4; i ++) {
@@ -73,13 +73,16 @@ void solve()
             if(nx < 0 or ny < 0 or nx >= n or ny >= m or a[nx][ny] == '#') {
                 continue;
             }
-
+            
+            // 可以更新
             if(f[nx][ny] < nd - 1) {
                 f[nx][ny] = nd - 1;
                 que.push({nx,ny});
             }
         }
     }
+
+    // 是否能到达
     if(f[gx][gy] == -1) cout << "No";
     else cout << "Yes";
 }

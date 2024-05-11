@@ -10,6 +10,7 @@
     "stack": "cpp",
     "vector": "cpp",
     "iomanip": "cpp",
-    "set": "cpp"
+    "set": "cpp",
+    "random": "cpp"
   }
 }

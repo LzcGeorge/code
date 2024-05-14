@@ -9,6 +9,7 @@ void solve()
     int n;
     cin >> n;
     ll res = 0;
+    // 两个同心圆，找找里面有几个点
     for(int i = 1; i <= n; i ++) {
         ll mx = 1ll * (n+1) * (n+1) - 1ll * i * i;
         ll mn = 1ll * n * n - 1ll * i * i;

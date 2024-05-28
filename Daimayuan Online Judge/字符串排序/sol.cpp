@@ -1,0 +1,60 @@
+#include <bits/stdc++.h>
+using namespace std;
+using ll = long long;
+
+// 答案/构造 是从样例中推出来的，不是猜出来的
+
+const int N = 500010;
+int nxt[N][26];
+int isend[N];
+int cnt = 0;
+void insert(string s) {
+    int cur = 0;
+    for(auto c: s) {
+        int x = c - 'a';
+        if(!nxt[cur][x]) nxt[cur][x] = ++cnt;
+        cur = nxt[cur][x];
+    }
+    isend[cur] ++;
+    
+}
+
+bool search(string s) {
+    int cur = 0;
+    for(auto c: s) {
+        int x = c - 'a';
+        if(!nxt[cur][x]) return false;
+        cur = nxt[cur][x];
+    }
+    return isend[cur] > 0;
+}
+
+void dfs(int cur,string s) {
+    if(isend[cur] > 0) cout << s << "\n";
+    for(int i = 0; i < 26; i ++) {
+        if(nxt[cur][i]) {
+            dfs(nxt[cur][i],s + char(i + 'a'));
+        }
+    }
+} 
+void solve()
+{
+    int n,m;
+    cin >> n;
+    for(int i = 0; i < n; i ++) {
+        string s;
+        cin >> s;
+        insert(s);
+    }
+    
+    dfs(0,"");
+    
+    
+}
+
+int main()
+{
+    std::ios::sync_with_stdio(0),std::cin.tie(0);
+    
+    solve();
+}

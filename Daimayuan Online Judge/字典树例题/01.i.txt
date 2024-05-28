@@ -1,0 +1,8 @@
+4
+abcd
+cdf
+abc
+bbc
+2
+abc
+abe

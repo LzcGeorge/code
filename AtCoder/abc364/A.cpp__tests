@@ -1,0 +1,27 @@
+[
+	{
+		"correct_answers":
+		[
+			"Yes"
+		],
+		"test": "5\nsalty\nsweet\nsalty\nsalty\nsweet\n"
+	},
+	{
+		"correct_answers":
+		[
+			"Yes"
+		],
+		"test": "4\nsweet\nsalty\nsweet\nsweet\n",
+		"uncorrect_answers":
+		[
+			"No"
+		]
+	},
+	{
+		"correct_answers":
+		[
+			"Yes"
+		],
+		"test": "1\nsweet\n"
+	}
+]

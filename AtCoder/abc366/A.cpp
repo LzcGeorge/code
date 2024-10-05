@@ -6,7 +6,13 @@ using ll = long long;
 
 void solve()
 {
-    
+    int N,A,T;
+    cin >> N >> A >> T;
+    if(A > N - A or T > N - T) {
+        cout << "Yes\n";
+    } else {
+        cout << "No\n";
+    }
 }
 
 int main()

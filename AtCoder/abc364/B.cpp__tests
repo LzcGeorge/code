@@ -1,0 +1,23 @@
+[
+	{
+		"correct_answers":
+		[
+			"2 2"
+		],
+		"test": "2 3\n2 1\n.#.\n...\nULDRU\n"
+	},
+	{
+		"correct_answers":
+		[
+			"2 4"
+		],
+		"test": "4 4\n4 2\n....\n.#..\n...#\n....\nDUUUURULRD\n"
+	},
+	{
+		"correct_answers":
+		[
+			"1 1"
+		],
+		"test": "6 6\n1 1\n.#####\n######\n######\n######\n######\n######\nRURLDLULLRULRDL\n"
+	}
+]
